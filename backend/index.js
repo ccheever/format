@@ -60,7 +60,7 @@ app.get('/', async (req, res) => {
 
 server.applyMiddleware({ app });
 
-let port = process.env.PORT || 4000;
+let port = process.env.PORT || 6200;
 
 async function mainAsync() {
   // This `listen` method launches a web-server.
