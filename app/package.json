@@ -6,7 +6,7 @@
     "ios": "npx expo start --ios",
     "web": "npx expo start --web",
     "eject": "npx expo eject",
-    "build-web": "npx expo build:web --no-pwa"
+    "build-web": "npx expo build:web --no-pwa --non-interactive"
   },
   "dependencies": {
     "expo": "^35.0.0",
