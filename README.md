@@ -1,2 +1,3 @@
-# format-poc
-Proof of concept for JIm's Format Network
+# Format
+Proof of concept for Format
+
