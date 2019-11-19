@@ -1,50 +1,46 @@
 let { gql } = require('apollo-server-express');
 
 module.exports = gql`
+  scalar DateTime
+
   type Query {
     answerToLife: Int
   }
 
   type User {
-      userId: ID!
-      name: String
-      emails: [Email]
+    userId: ID!
+    name: String
+    emails: [Email]
   }
 
-  interface Contact {
-
-  }
-
-  type Email implements Contact {
-
+  type Email {
+    email: String
+    primary: Boolean
+    verified: Boolean
+    receivesNotifications: Boolean
+    undeliverable: Boolean
+    visible: Boolean
   }
 
   type Org {
-      orgId: ID!
+    orgId: ID!
   }
 
   type Pub {
-      pubId: ID!
+    pubId: ID!
   }
 
   type Post {
-      postId: ID!
-      blocks: [Block]
-      createdTime: DateTime
-      updatedTime: DateTime
-      publishedTime: DateTime
-      collaborators: [User]
-      publications: [Pub]
+    postId: ID!
+    blocks: [Block]
+    createdTime: DateTime
+    updatedTime: DateTime
+    publishedTime: DateTime
+    collaborators: [User]
+    publications: [Pub]
   }
 
   type Block {
-      blockId: ID!
-
+    blockId: ID!
   }
-
-  type Mutation {
-
-  }
-
-
 `;
