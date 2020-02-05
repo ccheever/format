@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+export PGHOST=`node -e "console.log(require('./secret').postgres.host)"`
+export PGUSER=`node -e "console.log(require('./secret').postgres.user)"`
+export PGDATABASE=`node -e "console.log(require('./secret').postgres.database)"`
+export PGPASSWORD=`node -e "console.log(require('./secret').postgres.password)"`
+
+echo "// Format Database"
+echo 'Type \dt to list tables, \d+ <table-name> to describe a table'
+pgcli  --host=$PGHOST --username=$PGUSER --dbname=$PGDATABASE $*
+
