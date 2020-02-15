@@ -5,6 +5,7 @@ module.exports = gql`
 
   type Query {
     answerToLife: Int
+    user(userId: ID!): User
   }
 
   type User {
