@@ -8,6 +8,7 @@ module.exports = gql`
     user(userId: ID!): User
   }
 
+
   type User {
     userId: ID!
     name: String

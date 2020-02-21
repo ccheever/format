@@ -5,9 +5,9 @@ module.exports = {
     answerToLife: (_, {}, context, info) => {
       return 42;
     },
-    user: async (_, {userId}, context, info) => {
+    user: async (_, { userId }, context, info) => {
       return await User.retrieveUser(context, userId);
-    }
+    },
   },
 
 };
