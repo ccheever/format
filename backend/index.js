@@ -62,16 +62,62 @@ server.applyMiddleware({ app });
 
 let port = process.env.PORT || 6200;
 
+function handleCommandLineKeypresses(urls) {
+  let readline = require('readline');
+  readline.emitKeypressEvents(process.stdin);
+  if (typeof process.stdin.setRawMode === 'function') {
+    process.stdin.setRawMode(true);
+  }
+  process.stdin.on('keypress', (str, key) => {
+    if (key.ctrl && key.name == 'c') {
+      process.exit();
+    }
+    let open = require('open');
+    switch (key.name) {
+      case 'o':
+        open(urls.appUrl);
+        break;
+      case 'g':
+        open(urls.graphqlUrl);
+        break;
+      case 'q':
+        process.exit();
+        break;
+      default:
+        // TODO: Print help or something
+        break;
+    }
+  });
+
+  console.log("o - Open API server | g - Open GraphQL console | q - quit");
+}
+
 async function mainAsync() {
   // This `listen` method launches a web-server.
-  app.listen({ port }, () => {
-    console.log(`📄 Format API Server ready at http://localhost:${port}`);
-    console.log(`🗂️  GraphQL Server ready at http://localhost:${port}${server.graphqlPath}`);
+  return new Promise((resolve, reject) => {
+    app.listen({ port }, () => {
+      console.log(`📄 Format API Server ready at http://localhost:${port}`);
+      console.log(`🗂️  GraphQL Server ready at http://localhost:${port}${server.graphqlPath}`);
+
+      let localIp = require('local-ip');
+      let myIp = localIp();
+      let appUrl = `http://localhost:${port}`;
+      let appLanUrl = `http://${myIp}:${port}`;
+      resolve({
+        appUrl,
+        appLanUrl,
+        graphqlUrl: `${appUrl}${server.graphqlPath}`,
+        graphqlLanUrl: `${appLanUrl}${server.graphqlPath}`,
+      });
+    });
   });
 }
 
 if (require.main === module) {
-  mainAsync();
+  (async () => {
+    let urls = await mainAsync();
+    handleCommandLineKeypresses(urls);
+  })();
 }
 
 module.exports = {

@@ -8,17 +8,22 @@
   "license": "MIT",
   "scripts": {
     "start": "node .",
-    "watch": "nodemon ."
+    "watch": "nodemon .",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "apollo-server-express": "^2.9.9",
     "es6-error": "^4.1.1",
     "express": "^4.17.1",
     "knex": "^0.20.8",
-    "pg": "^7.18.1"
+    "local-ip": "^2.0.0",
+    "patch-package": "^6.2.0",
+    "pg": "^7.18.1",
+    "postinstall-postinstall": "^2.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.4",
+    "open": "^7.0.2",
     "project-repl": "^1.5.0"
   }
 }
