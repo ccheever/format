@@ -89,7 +89,7 @@ function handleCommandLineKeypresses(urls) {
     }
   });
 
-  console.log("o - Open API server | g - Open GraphQL console | q - quit");
+  console.log('ℹ️  o - Open API server | g - Open GraphQL console | q - quit');
 }
 
 async function mainAsync() {
