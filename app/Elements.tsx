@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import * as HE from '@expo/html-elements';
-import { useFonts } from '@use-expo/font';
+import * as H from '@expo/html-elements';
+import { useFonts } from './useFonts';
 
 export function useAppFonts() {
   return useFonts({
@@ -27,5 +27,29 @@ export function useAppFonts() {
 }
 
 export function H1(props, context) {
-  return <HE.H1 {...props} style={[{ fontFamily: 'Inter-Black' }, props.style]} />;
+  return <H.H1 {...props} style={[{ fontFamily: 'Inter-Black' }, props.style]} />;
+}
+
+export function H2(props, context) {
+  return <H.H2 {...props} style={[{ fontFamily: 'Inter-ExtraBold' }, props.style]} />;
+}
+
+export function H3(props, context) {
+  return <H.H3 {...props} style={[{ fontFamily: 'Inter-Bold' }, props.style]} />;
+}
+
+export function H4(props, context) {
+  return <H.H4 {...props} style={[{ fontFamily: 'Inter-SemiBold' }, props.style]} />;
+}
+
+export function H5(props, context) {
+  return <H.H5 {...props} style={[{ fontFamily: 'Inter-Medium' }, props.style]} />;
+}
+
+export function H6(props, context) {
+  return <H.H6 {...props} style={[{ fontFamily: 'Inter-Regular' }, props.style]} />;
+}
+
+export function P(props, context) {
+  return <H.P {...props} style={[{ fontFamily: 'Inter-Regular' }, props.style]} />;
 }
