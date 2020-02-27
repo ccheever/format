@@ -3,9 +3,27 @@ import { StyleSheet, Text, View } from 'react-native';
 import { A } from '@expo/html-elements';
 import { useFonts } from '@use-expo/font';
 import { AppLoading } from 'expo';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import { LoginForm } from './Login';
 import { useAppFonts, H1, H2, H3, H4, H5, H6, P } from './Elements';
+
+let Stack = createStackNavigator();
+
+function HeadersDemoScreen() {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <H1>Heading One</H1>
+      <H2>Heading Two</H2>
+      <H3>Heading Three</H3>
+      <H4>Heading Four</H4>
+      <H5>Heading Five</H5>
+      <H6>Heading Six</H6>
+      <P>Paragraph Text</P>
+    </View>
+  );
+}
 
 export default function App() {
   console.log('render');
@@ -17,16 +35,20 @@ export default function App() {
   }
 
   return (
-    <View>
-      <H1>Heading One</H1>
-      <H2>Heading Two</H2>
-      <H3>Heading Three</H3>
-      <H4>Heading Four</H4>
-      <H5>Heading Five</H5>
-      <H6>Heading Six</H6>
-      <P>Paragraph Text</P>
-    </View>
-  )
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={HeadersDemoScreen}
+          options={{
+            title: 'Style Showcase',
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+
+  return <HeadersDemoScreen />;
 
   switch (appState) {
     case 'SPLASH':
