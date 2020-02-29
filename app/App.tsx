@@ -26,7 +26,7 @@ function HeadersDemoScreen() {
 }
 
 export default function App() {
-  console.log('render');
+  // console.log('render');
   let [appState, setAppState] = useState('SPLASH');
   let [isLoaded] = useAppFonts();
 

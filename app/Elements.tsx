@@ -23,10 +23,12 @@ export function useAppFonts() {
     'Inter-SemiBold': require('./assets/fonts/Inter/Inter-SemiBold.otf'),
     'Inter-ThinItalic': require('./assets/fonts/Inter/Inter-ThinItalic.otf'),
     'Inter-Thin': require('./assets/fonts/Inter/Inter-Thin.otf'),
+    'Glass-TTY-VT220': require('./assets/fonts/Glass_TTY_VT220.ttf'),
   });
 }
 
 export function H1(props, context) {
+  return <H.H1 {...props} style={[{ fontFamily: 'Glass-TTY-VT220' }, props.style]} />;
   return <H.H1 {...props} style={[{ fontFamily: 'Inter-Black' }, props.style]} />;
 }
 
