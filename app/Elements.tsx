@@ -28,7 +28,7 @@ export function useAppFonts() {
 }
 
 export function H1(props, context) {
-  return <H.H1 {...props} style={[{ fontFamily: 'Glass-TTY-VT220' }, props.style]} />;
+  // return <H.H1 {...props} style={[{ fontFamily: 'Glass-TTY-VT220' }, props.style]} />;
   return <H.H1 {...props} style={[{ fontFamily: 'Inter-Black' }, props.style]} />;
 }
 

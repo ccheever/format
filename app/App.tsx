@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View, Button } from 'react-native';
 import { A } from '@expo/html-elements';
 import { useFonts } from '@use-expo/font';
 import { AppLoading } from 'expo';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { LoginForm } from './Login';
 import { useAppFonts, H1, H2, H3, H4, H5, H6, P } from './Elements';
+import { TextInput } from 'react-native-gesture-handler';
 
 let Stack = createStackNavigator();
+let Tab = createBottomTabNavigator();
 
 function HeadersDemoScreen() {
   return (
@@ -25,6 +28,17 @@ function HeadersDemoScreen() {
   );
 }
 
+function LoginStates() {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>E-mail address</Text>
+      <TextInput />
+      <HR />
+      <Button title="Login with Google" />
+    </View>
+  );
+}
+
 export default function App() {
   // console.log('render');
   let [appState, setAppState] = useState('SPLASH');
@@ -33,6 +47,15 @@ export default function App() {
   if (!isLoaded) {
     return <AppLoading />;
   }
+
+  return (
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={HeadersDemoScreen} />
+        <Tab.Screen name="Settings" component={HeadersDemoScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
 
   return (
     <NavigationContainer>
