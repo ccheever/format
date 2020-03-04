@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Button, StyleSheet, Text, View, Button } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
 import { A } from '@expo/html-elements';
-import { useFonts } from '@use-expo/font';
 import { AppLoading } from 'expo';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
