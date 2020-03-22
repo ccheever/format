@@ -11,7 +11,11 @@ let server = new ApolloServer({
   typeDefs,
   resolvers,
   introspection: true,
-  playground: true,
+  playground: {
+    settings: {
+      'editor.theme': 'light',
+    },
+  },
   formatError: (error) => {
     console.error(error);
     return error;
