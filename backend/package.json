@@ -15,7 +15,7 @@
     "apollo-server-express": "^2.9.9",
     "es6-error": "^4.1.1",
     "express": "^4.17.1",
-    "knex": "^0.20.8",
+    "knex": "^2.4.0",
     "local-ip": "^2.0.0",
     "patch-package": "^6.2.0",
     "pg": "^7.18.1",
